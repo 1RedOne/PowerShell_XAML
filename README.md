@@ -30,5 +30,7 @@ To make the elements on your GUI work, you'll need to add code to them, beginnin
 You'll find examples of how to do this already within the snippet.
 
 ###I still don't get it
-If this is confusing, please consult the [full step-by-step walkthrough]](http://foxdeploy.com/resources/learning-gui-toolmaking-series/) found on [FoxDeploy.com](http://www.foxdeploy.com).  Alternately, e-mail me at Stephen@Foxdeploy.com.
+If this is confusing, please consult the [full step-by-step walkthrough](http://foxdeploy.com/resources/learning-gui-toolmaking-series/) found on [FoxDeploy.com](http://www.foxdeploy.com).  
+
+Alternately, e-mail me at Stephen@Foxdeploy.com.
 
