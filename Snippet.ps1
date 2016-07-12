@@ -17,6 +17,12 @@ $inputXML = @"
 $inputXML = $inputXML -replace 'mc:Ignorable="d"','' -replace "x:N",'N' -replace '^<Win.*', '<Window'
 [void][System.Reflection.Assembly]::LoadWithPartialName('presentationframework')
 [xml]$XAML = $inputXML
+
+#Check for a text changed value (which we cannot parse)
+If ($xaml.SelectNodes("//*[@Name]") | ? TextChanged){write-error "This Snippet can't convert any lines which contain a 'textChanged' property. `n please manually remove these entries"
+        $xaml.SelectNodes("//*[@Name]") | ? TextChanged | % {write-warning "Please remove the TextChanged property from this entry $($_.Name)"}
+return}
+
 #Read XAML
 
     $reader=(New-Object System.Xml.XmlNodeReader $xaml) 
