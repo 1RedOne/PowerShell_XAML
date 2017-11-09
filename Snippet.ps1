@@ -23,6 +23,11 @@ If ($xaml.SelectNodes("//*[@Name]") | ? TextChanged){write-error "This Snippet c
         $xaml.SelectNodes("//*[@Name]") | ? TextChanged | % {write-warning "Please remove the TextChanged property from this entry $($_.Name)"}
 return}
 
+#Also Check for a SelectionChanged value (which we cannot parse)
+If ($xaml.SelectNodes("//*[@Name]") | ? SelectionChanged){write-error "This Snippet can't convert any lines which contain a 'SelectionChanged' property. `n please manually remove these entries"
+        $xaml.SelectNodes("//*[@Name]") | ? SelectionChanged | % {write-warning "Please remove the SelectionChanged property from this entry $($_.Name)"}
+return}
+
 #Read XAML
 
     $reader=(New-Object System.Xml.XmlNodeReader $xaml) 
